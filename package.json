@@ -1,0 +1,12 @@
+{
+  "name": "s60_how_to_beat_summer",
+  "version": "1.0.0",
+  "description": "![image alt text](https://i.pinimg.com/564x/e3/ae/a7/e3aea7944ec067ed3ef8e5aee2adaf0f.jpg)\r This website provides you with tips, some well-known ideas about surviving summer and categories which you can select from based on your interest...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
