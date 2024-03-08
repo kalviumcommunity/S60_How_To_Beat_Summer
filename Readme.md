@@ -10,3 +10,4 @@ This website provides you with tips, some well-known ideas about surviving summe
 * Provides Beauty tips
 * image alt text
 
+(https://s60-how-to-beat-summer.onrender.com/ping)
