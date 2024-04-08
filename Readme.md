@@ -11,3 +11,5 @@ This website provides you with tips, some well-known ideas about surviving summe
 * image alt text
 
 (https://s60-how-to-beat-summer.onrender.com/ping)
+
+DEPLOYED LINK :- (https://6613c13edaf78d823ca24046--candid-torrone-ec8575.netlify.app/)
