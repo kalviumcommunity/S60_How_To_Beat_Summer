@@ -1,26 +1,31 @@
-const mongobd = require("moongose")
-const summerDB=require("./summerData")
-const dot =require("dotenv")
-dot.config()
-function backEnd(){
+const mongoose = require("mongoose");
+const summerDB = require("./summerData");
+const dotenv = require("dotenv");
 
-mongobd.connect(process.env.Connection)
-.then(()=>{
-    console.log("Conneted")
-})
-.catch(()=>{
-    console.log("error")
-})
+dotenv.config();
 
+async function backEnd() {
+    try {
+        await mongoose.connect(process.env.Connection);
+        console.log("Connected to MongoDB");
+    } catch (error) {
+        console.error("Error connecting to MongoDB:", error);
+    }
 }
-const summerSchema=mongobd.Schema({
-    category : String,
+
+const summerSchema =  mongoose.Schema({
+    category: String,
     image: String,
-    health:String,
-    beauty : String,
-    dos : String,
-    donts : String
-})
-console.log(summerDB)
-const data = mongobd.model("basicData",summerSchema)
-module.exports={model:data,connectdb:backEnd}
+    health: String,
+    beauty: String,
+    dos: String,
+    donts: String
+});
+
+const SummerModel = mongoose.model("SummerData", summerSchema);
+module.exports = {
+    model: SummerModel,
+    connectdb: backEnd
+};
+
+// Call the function to connect to the database and insert data
