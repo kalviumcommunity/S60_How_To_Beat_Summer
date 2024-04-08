@@ -1,5 +1,7 @@
 var express = require("express")
 var app = express()
+const route = require("./routes")
+app.use("/",route)
 const {connectdb,model} = require("./mongodatabase")
 function getted(){
     return model.db.readyState === 1
