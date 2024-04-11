@@ -21,11 +21,10 @@ const summerSchema =  mongoose.Schema({
     dos: String,
     donts: String
 });
-
+console.log(summerDB)
 const SummerModel = mongoose.model("SummerData", summerSchema);
 module.exports = {
     model: SummerModel,
     connectdb: backEnd
 };
 
-// Call the function to connect to the database and insert data
