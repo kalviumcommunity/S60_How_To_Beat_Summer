@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function FetchData() {
   const [summerData, setsummerData] = useState([]);
@@ -18,11 +19,12 @@ function FetchData() {
   }, []);
   return (
     <div>
+    <Link to="/post">  <button>Adding Data</button> </Link>
       {summerData.map((data) => {
         return (
           <div key={data._id}>
             <h3><b>Cateory Name: </b> {data.category}</h3>
-            <img src={data.image} alt="" />
+            <img src={data.image} alt="image here" />
             <p> <b>Health Tip: </b> {data.health}</p>
             <p> <b>Beauty Tip: </b> {data.beauty}</p>
             <p> <b>Dos: </b> {data.dos}</p>
