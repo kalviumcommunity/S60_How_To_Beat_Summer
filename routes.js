@@ -10,11 +10,10 @@ AppRoute.get("/get",(request,res)=>{
         res.json({err});
     })
 })
-AppRoute.get("/get",(request,res)=>{
-    res.send("Get is successful")
-})
 AppRoute.post("/post",(request,res)=>{
-    res.send("Posted successful")
+    model.create(request.body)
+    .then(data=>res.json(data))
+    .catch(error=>res.json(error))
 })
 AppRoute.put("/put/:key",(request,res)=>{
     res.send("Updated successful")

@@ -12,7 +12,7 @@ function FetchData() {
         console.log(database.data.a);
         setsummerData(database.data.a);
       } catch (err) {
-        console.error("Error :", err);
+        console.error("Error: ", err);
       }
     };
     gettingData();
