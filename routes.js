@@ -1,6 +1,7 @@
 const expressTech = require("express")
 const AppRoute = expressTech()
 const {model} = require("./mongodatabase")
+const schema = require("./SchemaJoi")
 AppRoute.get("/get",(request,res)=>{
     model.find({})
     .then((a)=>{ 
@@ -11,6 +12,10 @@ AppRoute.get("/get",(request,res)=>{
     })
 })
 AppRoute.post("/post",async (request,res)=>{
+    const {error, value} = schema.validate(request.body)
+    if(error){
+        res.json({message : "Invalid input", error : error.message})
+    }
     await model.create(request.body)
     .then((ele)=>{
         res.json(ele)
