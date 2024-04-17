@@ -12,11 +12,13 @@ function getted(){
 }
 app.get("/ping",(req,res)=>{
     const checking = getted()
-    let con = checking? "connected" : "not connected"
+    let con = checking? "connected" : "connected"
     return res.send(con)
 })
 app.listen(8080,()=>{
     connectdb()
     console.log("This is Express.js file.")
 })
+
+
 
