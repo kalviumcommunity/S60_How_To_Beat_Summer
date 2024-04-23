@@ -21,10 +21,20 @@ const summerSchema =  mongoose.Schema({
     dos: String,
     donts: String
 });
+
+const user = mongoose.Schema({
+    name:String,
+    email:String,
+    pin:String
+})
+
+
 console.log(summerDB)
 const SummerModel = mongoose.model("SummerData", summerSchema);
+const modelUser = mongoose.model("infro", user)
 module.exports = {
     model: SummerModel,
-    connectdb: backEnd
+    connectdb: backEnd,
+    clientModel : modelUser,
 };
 

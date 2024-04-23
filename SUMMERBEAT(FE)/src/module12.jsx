@@ -14,7 +14,10 @@ function FetchData() {
       console.log(err);
     }
   };
-
+const cookieremove=()=>{
+  document.cookie = "email=; expires = mon, 22 april 2024 00:00:00 GMT ";
+  document.cookie = "name=; expires = mon, 22 april 2024 00:00:00 GMT "
+}
   useEffect(() => {
     const gettingData = async () => {
       try {
@@ -33,7 +36,9 @@ function FetchData() {
         <Link to="/post">
           <button>Add</button>{" "}
         </Link>
+        <button onClick={cookieremove}>Log Out</button>
       </div>
+
       {summerData.map((data) => {
         return (
           <div key={data._id}>
