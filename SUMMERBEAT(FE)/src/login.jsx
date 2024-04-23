@@ -14,6 +14,7 @@ function Login() {
         if(res.data.message==="User Login"){
             navigate("/fetch")
             document.cookie=`name=${name}; expires Sun, 31 Dec 2034 00:00:00 GMT`
+            document.cookie = `token=${res.data.cookieToken}; expires sun 31 Dec 2034 00:00:00 GMT`
             document.cookie=`email=${email}; expires Sun, 31 Dec 2034 00:00:00 GMT`
         }else if(res.data.message==="Invalid user details, Prefer to signup"){
             error()

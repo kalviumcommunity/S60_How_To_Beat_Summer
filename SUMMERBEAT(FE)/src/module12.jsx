@@ -16,6 +16,7 @@ function FetchData() {
   };
 const cookieremove=()=>{
   document.cookie = "email=; expires = mon, 22 april 2024 00:00:00 GMT ";
+  document.cookie = "token=; expires = mon 22 april 2024 00:00:00 GMT"
   document.cookie = "name=; expires = mon, 22 april 2024 00:00:00 GMT "
 }
   useEffect(() => {

@@ -2,6 +2,11 @@ const expressTech = require("express")
 const AppRoute = expressTech()
 const {model,clientModel} = require("./mongodatabase")
 const schema = require("./SchemaJoi")
+const jwt = require("jsonwebtoken")
+const env = require("dotenv")
+
+env.config()
+
 AppRoute.get("/get",(request,res)=>{
     model.find({})
     .then((a)=>{ 
@@ -56,7 +61,9 @@ AppRoute.post("/login", (request, res) => {
         console.log(name,"outside if")
         if(infro){
             if(infro.pin === pin && infro.name === name){
-                res.json({message:"User Login"})
+                const token = jwt.sign({name : infro.name, email : infro.email}, process.env.key)
+                res.json({message:"User Login",cookieToken : token})
+
             }else{
                 console.log("User detail did not match")
                 res.json({message: "Invalid user details, Prefer to signup"})
