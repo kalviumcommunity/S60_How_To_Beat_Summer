@@ -1,6 +1,6 @@
 const expressTech = require("express")
 const AppRoute = expressTech()
-const {model} = require("./mongodatabase")
+const {model,clientModel} = require("./mongodatabase")
 const schema = require("./SchemaJoi")
 AppRoute.get("/get",(request,res)=>{
     model.find({})
@@ -11,12 +11,12 @@ AppRoute.get("/get",(request,res)=>{
         res.json({err});
     })
 })
-AppRoute.post("/post",async (request,res)=>{
+AppRoute.post("/post", (request,res)=>{
     const {error, value} = schema.validate(request.body)
     if(error){
-        res.json({message : "Invalid input", error : error.message})
+        return res.json({message : "Invalid input", error : error.message})
     }
-    await model.create(request.body)
+ model.create(request.body)
     .then((ele)=>{
         res.json(ele)
     })
@@ -37,6 +37,41 @@ AppRoute.put("/put/:key",(request,res)=>{
     donts: request.body.donts
     }).then(()=>{res.send("done")})
 })
+
+AppRoute.post("/sign", (request,res)=>{
+    clientModel.create(request.body)
+    .then((ele)=>{
+        res.json(ele)
+    })
+    .catch((err)=>{
+        console.log(err)
+        res.json(err)
+    })
+})
+
+AppRoute.post("/login", (request, res) => {
+    const {name,email,pin} = request.body
+    clientModel.findOne({email : email})
+    .then(infro => {
+        console.log(name,"outside if")
+        if(infro){
+            if(infro.pin === pin && infro.name === name){
+                res.json({message:"User Login"})
+            }else{
+                console.log("User detail did not match")
+                res.json({message: "Invalid user details, Prefer to signup"})
+            }
+        }else{
+            console.log("login failed")
+            res.json({message: "Invalid user details, Prefer to signup"})
+        }
+    })
+    .catch(error => {
+        console.log(`Error: ${error.message}`);
+        res.json({ message: "An error occurred during login" });
+    });
+})
+
 AppRoute.delete("/delete/:key",(request,res)=>{
     const key = request.params.key;
     model.findByIdAndDelete(key)
