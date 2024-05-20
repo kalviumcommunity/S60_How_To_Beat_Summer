@@ -54,6 +54,17 @@ AppRoute.post("/sign", (request,res)=>{
     })
 })
 
+AppRoute.get("/sign", (request,res)=>{
+    clientModel.find({})
+    .then((ele)=>{
+        res.json(ele)
+    })
+    .catch((err)=>{
+        console.log(err)
+        res.json(err)
+    })
+})
+
 AppRoute.post("/login", (request, res) => {
     const {name,email,pin} = request.body
     clientModel.findOne({email : email})

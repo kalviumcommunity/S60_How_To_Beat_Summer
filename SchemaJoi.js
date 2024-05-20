@@ -7,5 +7,6 @@ const schema = Joi.object({
     beauty: Joi.string().required(),
     dos:Joi.string().required(),
     donts: Joi.string().required(),
+    nickname : Joi.string().required(),
 })
 module.exports = schema;

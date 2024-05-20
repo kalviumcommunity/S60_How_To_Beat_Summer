@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import axios from "axios";
 
 function Adding(){
@@ -8,6 +8,19 @@ function Adding(){
     const [beauty, setBeautyData] = useState("");
     const [dos, setDosData] = useState("");
     const [donts, setDontsData] = useState("");
+    const [nickname , setname] = useState("")
+
+    useEffect(()=>{
+        const cookieoutput=document.cookie;
+        const dividecookie=cookieoutput.split("; ")
+        const cookieobject={}
+        for(const k of dividecookie){
+          const[key,value]=k.split("=")
+          cookieobject[key]=value
+        }
+        const Name=cookieobject["name"]
+        setname(Name)
+      },[])
 
     function changeCategory(e){
       setCategory(e.target.value);
@@ -34,13 +47,13 @@ function Adding(){
     }
 
     function recordSubmit(){
-        axios.post("http://localhost:8080/post", {category, image, health, beauty, dos, donts})
+        axios.post("http://localhost:8080/post", {category, image, health, beauty, dos, donts,nickname})
              .then(data => console.log(data))
              .catch(error => console.log(error));
     }
 
     return(
-        <div>
+        <div className="loginpage">
             <form>
                 <div>
                     <input type="text" placeholder="Category Name" onChange={changeCategory} />
@@ -61,6 +74,7 @@ function Adding(){
                     <input type="text" placeholder="Donts" onChange={changeDonts} />
                 </div>
             </form>
+            <p>{nickname}</p>
             <button onClick={recordSubmit}>Add</button>
         </div>
     );

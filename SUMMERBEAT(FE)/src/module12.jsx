@@ -33,16 +33,19 @@ const cookieremove=()=>{
   }, []);
   return (
     <div>
-      <div>
+      <div className="nav">
         <Link to="/post">
           <button>Add</button>{" "}
         </Link>
         <button onClick={cookieremove}>Log Out</button>
+        <Link to="/datafilter">
+        <button>Filter</button>
+        </Link>
       </div>
-
-      {summerData.map((data) => {
+<div className="getreq">      
+  {summerData.map((data) => {
         return (
-          <div key={data._id}>
+          <div key={data._id} >
             <h3>
               <b>Cateory Name: </b> {data.category}
             </h3>
@@ -76,6 +79,7 @@ const cookieremove=()=>{
           </div>
         );
       })}
+      </div>
     </div>
   );
 }

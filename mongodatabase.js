@@ -12,14 +12,14 @@ async function backEnd() {
         console.error("Error connecting to MongoDB:", error);
     }
 }
-
 const summerSchema =  mongoose.Schema({
     category: String,
     image: String,
     health: String,
     beauty: String,
     dos: String,
-    donts: String
+    donts: String,
+    nickname : String
 });
 
 const user = mongoose.Schema({

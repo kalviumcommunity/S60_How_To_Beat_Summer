@@ -37,7 +37,7 @@ function Add(){
          .catch(error=>console.log(error))  
       }
     return(
-       <div>
+       <div className="loginpage">
         <form>
             <div>
             <input type="text" placeholder="Cateogry Name" onChange={changeCateogory} />
