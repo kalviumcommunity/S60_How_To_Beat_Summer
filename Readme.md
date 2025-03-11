@@ -1,15 +1,21 @@
-# How To Beat Summer ??
-![image alt text](https://i.pinimg.com/564x/e3/ae/a7/e3aea7944ec067ed3ef8e5aee2adaf0f.jpg)
-This website provides you with tips, some well-known ideas about surviving summer and categories which you can select from based on your interest...
+# ☀️ HOW TO BEAT SUMMER?? 🌊  
 
-**CONSISTS OF -**
+A website that provides tips, well-known ideas, and categories to help you survive summer based on your interests!  
 
-* Budget friendely
-* User Interactive
-* Shows results based on Personal choice
-* Provides Beauty tips
-* image alt text
+![How To Beat Summer](https://i.pinimg.com/564x/e3/ae/a7/e3aea7944ec067ed3ef8e5aee2adaf0f.jpg)  
 
-(https://s60-how-to-beat-summer.onrender.com/ping)
+## 📌 Features  
+- ✅ **Budget-Friendly** – Provides cost-effective summer survival ideas.  
+- ✅ **User Interactive** – Engaging UI with personalized options.  
+- ✅ **Personalized Results** – Shows tips based on user preferences.  
+- ✅ **Beauty Tips** – Offers skincare and beauty recommendations for summer.  
 
-DEPLOYED LINK :- (https://6613c13edaf78d823ca24046--candid-torrone-ec8575.netlify.app/)
+## 🛠️ Tech Stack  
+- **MERN Stack** (MongoDB, Express.js, React, Node.js)  
+- **JavaScript**  
+- **Firebase** (for authentication)  
+- **Bruno** (for API testing)  
+
+---
+
+## 🚀 Getting Started  
